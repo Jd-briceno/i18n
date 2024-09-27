@@ -1,0 +1,42 @@
+.light-background {
+  background-color: #f8f9fa;
+  color: #000;
+  min-height: 100vh;
+}
+
+.dark-background {
+  background-color: #343a40;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.thead-light {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+.thead-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.light-background .table td {
+  color: #000;
+}
+
+.dark-background .table td {
+  color: #fff;
+}
+
+.dark-background .table th {
+  color: #fff;
+}
+
+.dark-background .table {
+  border-color: #555;
+}

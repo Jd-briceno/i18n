@@ -1,0 +1,11 @@
+{
+    "job.position": "Position",
+    "job.company": "Company",
+    "job.salary": "Salary",
+    "job.city": "City",
+    "job.date": "Publication Date",
+    "job.views": "Views",
+    "salary.million": "million",
+    "salary.millions": "millions"
+  }
+  

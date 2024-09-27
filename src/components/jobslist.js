@@ -1,55 +1,77 @@
-import React, { useState } from "react";
+import React from "react";
 import Job from "./job";
+import { FormattedMessage } from "react-intl";
+import '../styles.css';
 
-const JobsList = () => {
-  const [offers] = useState([
+const JobsList = ({ locale }) => {
+  const offers = [
     {
       id: "0001",
       name: "Manager",
       company: "Schneider Electric",
-      salary: 4.5,
+      salary: 4500,
       city: "Bogotá, Colombia",
-      date: "2019-03-26",
+      date: "2019-03-25",
+      views: 1250
     },
     {
       id: "0002",
       name: "Software Engineer",
       company: "Google Inc.",
-      salary: 20,
+      salary: 20000,
       city: "Palo Alto, CA, USA",
-      date: "2019-03-27",
+      date: "2019-03-26",
+      views: 22500
     },
     {
       id: "0003",
       name: "Nurse",
       company: "Clínica La Aurora",
-      salary: 1,
+      salary: 1000,
       city: "Cali, Colombia",
-      date: "2019-03-28",
-    },
-  ]);
+      date: "2019-03-27",
+      views: 300
+    }
+  ];
+
+  const headerClass = locale === "es-ES" ? "thead-light" : "thead-dark";
+
+  console.log("Offers: ", offers);
 
   return (
-    <div>
-      <table className="table">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Position</th>
-            <th scope="col">Company</th>
-            <th scope="col">Salary</th>
-            <th scope="col">City</th>
-            <th scope="col">Publication date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {offers.map((e, i) => (
-            <Job key={i} offer={e} />
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  <div>
+    <table className="table">
+      <thead className={headerClass}>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">
+            <FormattedMessage id="job.position" defaultMessage="Position" />
+          </th>
+          <th scope="col">
+            <FormattedMessage id="job.company" defaultMessage="Company" />
+          </th>
+          <th scope="col">
+            <FormattedMessage id="job.salary" defaultMessage="Salary" />
+          </th>
+          <th scope="col">
+            <FormattedMessage id="job.city" defaultMessage="City" />
+          </th>
+          <th scope="col">
+            <FormattedMessage id="job.date" defaultMessage="Publication Date" />
+          </th>
+          <th scope="col">
+            <FormattedMessage id="job.views" defaultMessage="Views" />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {offers.map((e, i) => (
+          <Job key={i} offer={e} />
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
 };
 
 export default JobsList;

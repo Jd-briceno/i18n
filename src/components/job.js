@@ -1,14 +1,37 @@
 import React from "react";
+import { FormattedDate, FormattedMessage, FormattedNumber } from "react-intl";
 
-const Job = (props) => {
+const Job = ({ offer }) => {
+  const salaryInMillions = offer.salary / 1000000;
+
   return (
     <tr>
-      <th scope="row">{props.offer.id}</th>
-      <td>{props.offer.name}</td>
-      <td>{props.offer.company}</td>
-      <td>{props.offer.salary}</td>
-      <td>{props.offer.city}</td>
-      <td>{props.offer.date}</td>
+      <th scope="row">{offer.id}</th>
+      <td>{offer.name}</td>
+      <td>{offer.company}</td>
+      <td>
+        <FormattedNumber
+          value={salaryInMillions}
+          maximumFractionDigits={2}
+        />{" "}
+        <FormattedMessage
+          id={salaryInMillions > 1 ? "salary.millions" : "salary.million"}
+          defaultMessage="million"
+        /> US$
+      </td>
+      <td>{offer.city}</td>
+      <td>
+        <FormattedDate
+          value={new Date(offer.date)}
+          year="numeric"
+          month="long"
+          day="numeric"
+          weekday="long"
+        />
+      </td>
+      <td>
+        <FormattedNumber value={offer.views} />
+      </td>
     </tr>
   );
 };

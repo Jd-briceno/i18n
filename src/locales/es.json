@@ -1,0 +1,10 @@
+{
+    "job.position": "Nombre del cargo",
+    "job.company": "Compañía",
+    "job.salary": "Salario",
+    "job.city": "Ciudad",
+    "job.date": "Fecha de publicación",
+    "job.views": "Visitas",
+    "salary.million": "millón",
+    "salary.millions": "millones"
+  }  
